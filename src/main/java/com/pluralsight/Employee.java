@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 /**
@@ -85,8 +86,10 @@ public class Employee {
     public void punchOut() {
        if(myStartTime != null) {
            LocalDateTime endTime = LocalDateTime.now();
-           LocalDateTime duration = myStartTime - LocalDateTime.now();
+           Duration duration = Duration.between(myStartTime, endTime);
+           hoursWorked += duration.toHours();
        }
+
 
 
         /*double duration = time - startTime;
